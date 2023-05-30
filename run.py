@@ -20,3 +20,19 @@ def place_ships(grid, num_ships):
             if grid[x][y] == EMPTY:
                 grid[x][y] = SHIP
                 break
+
+
+#This Function for display of the grid
+def display_grid(grid):
+    size = len(grid)
+    for row in grid:
+        print(" ".join(str(cell) for cell in row))
+
+#This  Function is to check if a coordinate is valid
+def is_valid_coordinate(grid, x, y):
+    size = len(grid)
+    return 0 <= x < size and 0 <= y < size
+
+#This Function is to check if a coordinate is a ship
+def is_ship(grid, x, y):
+    return grid[x][y] == SHIP
