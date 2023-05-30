@@ -36,3 +36,23 @@ def is_valid_coordinate(grid, x, y):
 #This Function is to check if a coordinate is a ship
 def is_ship(grid, x, y):
     return grid[x][y] == SHIP
+
+
+# Function to check if a coordinate has been hit
+def is_hit(grid, x, y):
+    return grid[x][y] == HIT
+
+# Function to check if a coordinate has been missed
+def is_miss(grid, x, y):
+    return grid[x][y] == MISS
+
+# Function to update the grid after a shot
+def update_grid(grid, x, y):
+    if is_valid_coordinate(grid, x, y):
+        if is_ship(grid, x, y):
+            grid[x][y] = HIT
+            return True
+        elif is_empty(grid, x, y):
+            grid[x][y] = MISS
+    return False
+
